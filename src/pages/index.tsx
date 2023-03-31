@@ -53,8 +53,8 @@ const PostView = (props: PostWithUser) => {
             post.createdAt
           ).fromNow()}`}</span>
         </div>
+        <span className="text-2xl">{post.content}</span>
       </div>
-      <span>{post.content}</span>
     </div>
   );
 };
@@ -76,7 +76,7 @@ const Feed = () => {
 };
 
 const Home: NextPage = () => {
-  const { user, isLoaded: userLoaded, isSignedIn } = useUser();
+  const { isLoaded: userLoaded, isSignedIn } = useUser();
   api.posts.getAll.useQuery();
 
   if (!userLoaded) return <div />;
